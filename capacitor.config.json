@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "netflix-ionic-react",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
