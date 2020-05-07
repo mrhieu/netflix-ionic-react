@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
+  setupConfig,
   IonApp,
   IonIcon,
   IonLabel,
@@ -10,7 +11,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { homeOutline, downloadOutline, menuOutline } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -34,6 +35,19 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+// custom CSS
+import './sass/variables.override.scss';
+import './sass/scrollHorizontal.scss';
+import './sass/helper.scss';
+import './sass/app.scss';
+import './sass/dark.scss';
+
+// LinkedIn-rionic: force the theme to iOS mode
+setupConfig({
+  mode: 'ios',
+  backButtonText: '',
+});
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -46,16 +60,16 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonIcon icon={homeOutline} />
+            <IonLabel>Home</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonIcon icon={downloadOutline} />
+            <IonLabel>Downloads</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonIcon icon={menuOutline} />
+            <IonLabel>More</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
